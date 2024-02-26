@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up 임시 Form</title>
+</head>
+<body>
+
+<h2> 회원가입 Form </h2>
+
+<form>
+<table>
+    <tr>
+        <td>아이디</td>
+        <td><input name="user_id" type="text"></td>
+    </tr>
+    <tr>
+        <td>비밀번호</td>
+        <td><input name="user_password" type="password"></td>
+    </tr>
+    <tr>
+        <td>비밀번호 확인</td>
+        <td><input name="user_password_ok" type="password"></td>
+    </tr>
+    <tr>
+        <td>이름</td>
+        <td><input name="user_name" type="text"></td>
+    </tr>
+    <tr>
+        <td>닉네임</td>
+        <td><input name="user_nickname"></td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td><input name="email_local" type="text"> @ <input name="email_domain" value="" readonly="readonly">
+            <select>
+                <option>naver.com</option>
+                <option>hanmail.net</option>
+                <option>daum.net</option>
+                <option>kakao.com</option>
+                <option>google.com</option>
+                <option>직접입력</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>성별</td>
+        <td><input name="user_sex" type="radio" value="0"> 남 <input name="sex" type="radio" value="1"> 여 </td>
+    </tr>
+    <tr>
+        <td>주소</td>
+        <td><input name="user_addr1" placeholder="주소">
+            <br>
+            <input name="user_addr2" placeholder="상세주소"></td>
+    </tr>
+
+</table>
+</form>
+
+</body>
+</html>
