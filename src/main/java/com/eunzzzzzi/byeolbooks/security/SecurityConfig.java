@@ -28,6 +28,7 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+        // 클래스가 아닌 메소드이지만, @Bean 어노테이션을 사용해주었기 때문에 객체처럼 사용할 수 있다.
     }
 
 }
