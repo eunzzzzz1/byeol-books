@@ -17,14 +17,16 @@
                     <input name="user_id" type="text" placeholder="아이디">
                 </div>
                 <div class="one_line">
-                    <input name="user_password" type="password" placeholder="비밀번호">
+                    <input name="user_password" type="password" placeholder="비밀번호" oninput="passwordValidate(this)">
+                    <div id="password_warn" class="validate_warning"></div>
                 </div>
                 <div class="one_line">
-                    <input name="user_nickname" placeholder="닉네임">
+                    <input name="user_nickname" placeholder="닉네임" oninput="nicknameValidate(this)">
+                    <div id="nickname_warn" class="validate_warning"></div>
                 </div>
-                <div class="one_line">
+                <div class="one_line" style="display: flex">
                     <input name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly">
-                    <select id="domain_select" onchange="changeDomainSelectOption()">
+                    <select id="domain_select" oninput="changeDomainSelectOption(this)">
                         <option selected disabled>선택하세요</option>
                         <option value="@naver.com">@naver.com</option>
                         <option value="@hanmail.net">@hanmail.net</option>

@@ -31,7 +31,7 @@
 }
 
 .one_line {
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     margin: 5px;
 }
@@ -39,7 +39,7 @@
 input {
     margin: 2px;
     padding: 5px 10px;
-    width: 100%;
+    width: 95%;
     height: 40px;
     border: 0;
     border-radius: 10px;
@@ -57,6 +57,7 @@ select {
 }
 
 .sex_div {
+    display: flex;
     height: 15px;
     padding: 15px;
     justify-content: space-between;
@@ -136,6 +137,13 @@ select {
 
 .oauth2_login_div img:hover {
     filter: brightness(110%) saturate(70%);
+}
+
+.validate_warning {
+    margin: 5px;
+    font-size: 9pt;
+    color: red;
+    font-weight: bold;
 }
 
 
