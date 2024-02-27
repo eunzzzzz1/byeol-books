@@ -1,0 +1,138 @@
+.all_container {
+    width: 500px;
+    display: grid;
+    margin: 30px auto 100px;
+    justify-content: center;
+    grid-template-areas:
+            "byeolbooks_logo"
+            "h2_title"
+            "."
+            "form_container"
+            "signup_btn"
+            "login_div"
+            "or_hr_div"
+            "oauth2_login_div"
+}
+
+.byeolbooks_logo {
+    grid-area: byeolbooks_logo;
+    justify-self: center;
+}
+
+.h2_title {
+    grid-area: h2_title;
+    justify-self: center;
+}
+
+.form_container {
+    grid-area: form_container;
+    justify-content: center;
+}
+
+.one_line {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+input {
+    margin: 2px;
+    padding: 5px 10px;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+}
+
+select {
+    margin: 2px;
+    padding: 0 10px;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+}
+
+.sex_div {
+    height: 15px;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+.radio_div {
+    display: flex;
+    align-content: center;
+}
+
+.radio {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.signup_btn_div {
+    grid-area: signup_btn;
+    text-align: center;
+    margin: 5px;
+}
+
+#signup_btn {
+    margin: 20px auto auto;
+    padding: 5px 10px;
+    width: 100%;
+    height: 45px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #9f04ff;
+
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+#signup_btn:hover {
+    background-color: #b63dff;
+}
+
+.login_div {
+    grid-area: login_div;
+    display: flex;
+    margin: 10px 10px 20px 10px;
+    justify-content: center;
+}
+
+.or_hr_div {
+    margin: 20px 0;
+    grid-area: or_hr_div;
+    display: flex;
+    align-items: center;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background-color: #dedede;
+}
+
+.or {
+    width: 30%;
+    color: #939393;
+    text-align: center;
+}
+
+.oauth2_login_div {
+    grid-area: oauth2_login_div;
+    display: flex;
+    justify-content: center;
+}
+
+.oauth2_login_div img {
+    width: 10%;
+    margin: 10px;
+}
+
+.oauth2_login_div img:hover {
+    filter: brightness(110%) saturate(70%);
+}
