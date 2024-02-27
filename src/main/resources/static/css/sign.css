@@ -9,6 +9,7 @@
             "."
             "form_container"
             "signup_btn"
+            "lost_pwd_div"
             "login_div"
             "or_hr_div"
             "oauth2_login_div"
@@ -99,7 +100,7 @@ select {
 .login_div {
     grid-area: login_div;
     display: flex;
-    margin: 10px 10px 20px 10px;
+    margin: 30px 10px 10px 10px;
     justify-content: center;
 }
 
@@ -135,4 +136,14 @@ select {
 
 .oauth2_login_div img:hover {
     filter: brightness(110%) saturate(70%);
+}
+
+
+/* 로그인 페이지에만 */
+
+.lost_pwd_div {
+    grid-area: lost_pwd_div;
+    display: flex;
+    margin: 30px 10px 10px 10px;
+    justify-content: center;
 }
