@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up 임시 Form</title>
+    <title>별책부록, 회원가입</title>
     <link rel="stylesheet" type="text/css" href="/static/css/all.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/sign.css"/>
+
 </head>
 <body>
     <div class="all_container">
@@ -22,15 +23,15 @@
                     <input name="user_nickname" placeholder="닉네임">
                 </div>
                 <div class="one_line">
-                    <input name="email_local" type="text" placeholder="이메일"> <input name="email_domain" value="" readonly="readonly">
-                    <select>
-                        <option>선택하세요</option>
-                        <option>@naver.com</option>
-                        <option>@hanmail.net</option>
-                        <option>@daum.net</option>
-                        <option>@kakao.com</option>
-                        <option>@google.com</option>
-                        <option>직접입력</option>
+                    <input name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly">
+                    <select id="domain_select" onchange="changeDomainSelectOption()">
+                        <option selected disabled>선택하세요</option>
+                        <option value="@naver.com">@naver.com</option>
+                        <option value="@hanmail.net">@hanmail.net</option>
+                        <option value="@daum.net">@daum.net</option>
+                        <option value="@kakao.com">@kakao.com</option>
+                        <option value="@google.com">@google.com</option>
+                        <option value="enter">직접입력</option>
                     </select>
                 </div>
                 <div class="one_line sex_div">
@@ -65,4 +66,7 @@
         </div>
     </div>
 </body>
+
+<script type="text/javascript" src="/static/js/signup.js"></script>
+
 </html>
