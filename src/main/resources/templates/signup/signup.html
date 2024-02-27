@@ -2,60 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up 임시 Form</title>
+    <title>별책부록, 회원가입</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/sign.css"/>
+
 </head>
 <body>
+    <div class="all_container">
+        <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
+        <h3 class="h2_title"> 회원가입 </h3>
+        <div class="form_container">
+            <form>
+                <div class="one_line">
+                    <input name="user_id" type="text" placeholder="아이디">
+                </div>
+                <div class="one_line">
+                    <input name="user_password" type="password" placeholder="비밀번호" oninput="passwordValidate(this)">
+                    <div id="password_warn" class="validate_warning"></div>
+                </div>
+                <div class="one_line">
+                    <input name="user_nickname" placeholder="닉네임" oninput="nicknameValidate(this)">
+                    <div id="nickname_warn" class="validate_warning"></div>
+                </div>
+                <div class="one_line" style="display: flex">
+                    <input name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly">
+                    <select id="domain_select" oninput="changeDomainSelectOption(this)">
+                        <option selected disabled>선택하세요</option>
+                        <option value="@naver.com">@naver.com</option>
+                        <option value="@hanmail.net">@hanmail.net</option>
+                        <option value="@daum.net">@daum.net</option>
+                        <option value="@kakao.com">@kakao.com</option>
+                        <option value="@google.com">@google.com</option>
+                        <option value="enter">직접입력</option>
+                    </select>
+                </div>
+                <div class="one_line sex_div">
+                    <div style="width: 50%;"> 성별 </div>
+                    <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="0"> 남</div>
+                    <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="1"> 여</div>
+                </div>
+                <div class="one_line">
+                    <input name="user_addr1" type="text" placeholder="주소">
+                </div>
+                <div class="one_line">
+                    <input name="user_addr2" type="text" placeholder="상세주소">
+                </div>
 
-<h2> 회원가입 Form </h2>
-
-<form>
-<table>
-    <tr>
-        <td>아이디</td>
-        <td><input name="user_id" type="text"></td>
-    </tr>
-    <tr>
-        <td>비밀번호</td>
-        <td><input name="user_password" type="password"></td>
-    </tr>
-    <tr>
-        <td>비밀번호 확인</td>
-        <td><input name="user_password_ok" type="password"></td>
-    </tr>
-    <tr>
-        <td>이름</td>
-        <td><input name="user_name" type="text"></td>
-    </tr>
-    <tr>
-        <td>닉네임</td>
-        <td><input name="user_nickname"></td>
-    </tr>
-    <tr>
-        <td>이메일</td>
-        <td><input name="email_local" type="text"> @ <input name="email_domain" value="" readonly="readonly">
-            <select>
-                <option>naver.com</option>
-                <option>hanmail.net</option>
-                <option>daum.net</option>
-                <option>kakao.com</option>
-                <option>google.com</option>
-                <option>직접입력</option>
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <td>성별</td>
-        <td><input name="user_sex" type="radio" value="0"> 남 <input name="sex" type="radio" value="1"> 여 </td>
-    </tr>
-    <tr>
-        <td>주소</td>
-        <td><input name="user_addr1" placeholder="주소">
-            <br>
-            <input name="user_addr2" placeholder="상세주소"></td>
-    </tr>
-
-</table>
-</form>
-
+            </form>
+        </div>
+        <div class="signup_btn_div"><button id="signup_btn"> 가입하기 </button></div>
+        <div class="login_div">
+            이미 가입하셨다면,&nbsp; <a href="">로그인하기</a>
+        </div>
+        <div class="or_hr_div">
+            <div class="hr"></div>
+            <div class="or">또는</div>
+            <div class="hr"></div>
+        </div>
+        <div class="oauth2_login_div">
+            <img src="/static/images/oauth2/icon-google.png">
+            <img src="/static/images/oauth2/icon-kakao.png">
+            <img src="/static/images/oauth2/icon-twitter.png">
+            <img src="/static/images/oauth2/icon-line.png">
+            <img src="/static/images/oauth2/icon-naver.png">
+        </div>
+    </div>
 </body>
+
+<script type="text/javascript" src="/static/js/signup.js"></script>
+
 </html>

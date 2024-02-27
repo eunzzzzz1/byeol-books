@@ -16,17 +16,14 @@ public class Users {
     @Id
     private String user_id;
     private String user_password;
-    private String user_name;
     private String user_nickname;
-    @Convert(converter = LocalDateTimeConverter.class)
-    private LocalDateTime create_date;
     private String user_email;
     private int user_sex;
-    @Convert(converter = LocalDateTimeConverter.class)
-    private LocalDateTime user_birth;
     private String user_addr1;
     private String user_addr2;
     private String provider;
     private String provider_token;
+    @Convert(converter = LocalDateTimeConverter.class)
+    private LocalDateTime create_date;
 
 }
