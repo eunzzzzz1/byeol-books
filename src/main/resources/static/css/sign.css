@@ -136,7 +136,8 @@ select {
 }
 
 .oauth2_login_div img:hover {
-    filter: brightness(110%) saturate(70%);
+    filter: brightness(95%);
+    cursor: pointer;
 }
 
 .validate_warning {
