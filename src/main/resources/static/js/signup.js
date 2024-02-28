@@ -32,7 +32,7 @@ function passwordValidate(inputText) {
 
     if(pwd.search(/\s/) !== -1) {
         passwordWarnDiv.textContent = ' * 비밀번호는 공백을 포함할 수 없습니다.';
-    } else if(pwd.length<=8 || pwd.length>=20) {
+    } else if(pwd.length<8 || pwd.length>20) {
         passwordWarnDiv.textContent = ' * 비밀번호는 8~20자로 입력해주세요.';
     } else if(num < 0 || eng_lower < 0 || spe < 0 || eng_upper<0) {
         passwordWarnDiv.textContent = ' * 영문 대/소문자, 숫자, 특수문자를 혼합해 입력해주세요.';
