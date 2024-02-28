@@ -74,6 +74,23 @@ select {
     margin-right: 10px;
 }
 
+.addr_search_div {
+    display: flex;
+}
+
+#search_addr_btn {
+    width: 50%;
+    height: 50px;
+    margin-left: 10px;
+
+    border: 0;
+    border-radius: 10px;
+    background-color: #c9c9c9;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .signup_btn_div {
     grid-area: signup_btn;
     text-align: center;

@@ -45,11 +45,16 @@
                     <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="0"> 남</div>
                     <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="1"> 여</div>
                 </div>
-                <div class="one_line">
-                    <input name="user_addr1" type="text" placeholder="주소">
+                <div class="one_line addr_search_div">
+                    <input id="user_addr0" name="user_addr0" type="text" placeholder="우편번호" readonly="readonly">
+                    <button id="search_addr_btn" onclick="execDaumPostcode()" type="button"> 우편번호 찾기 </button>
                 </div>
                 <div class="one_line">
-                    <input name="user_addr2" type="text" placeholder="상세주소">
+                    <input id="user_addr1" name="user_addr1" type="text" placeholder="주소" readonly="readonly">
+                </div>
+                <div class="one_line addr_search_div">
+                    <input id="user_addr2" name="user_addr2" type="text" placeholder="상세주소">
+                    <input id="user_addr3" name="user_addr3" type="text" placeholder="참고항목" style="margin-left: 10px; margin-right: 0" readonly="readonly">
                 </div>
 
             </form>
@@ -80,5 +85,8 @@
 
 <!--<script type="text/javascript" src="/static/js/signup.js"></script>-->
 <script type="text/javascript" src="/js/signup.js"></script>
+<!-- 다음 우편번호 서비스 API -->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 
 </html>
