@@ -1,21 +1,41 @@
 // 아이디
+    // TODO 형식 확인
+    /*
+        - 소문자와 숫자만 가능
+        - 20자 이내
+     */
+var idWarnDiv = document.getElementById('id_warn');
+function idValidate(inputText) {
+    var id = inputText.value;
+    var regex = /^[a-z0-9]*$/;
+
+    if(!regex.test(id)) {
+        idWarnDiv.textContent = ' * 아이디는 영문 소문자와 숫자로만 구성해주세요. ';
+    } else if(id.length<3 || id.length>20) {
+        idWarnDiv.textContent = ' * 아이디는 3자 이상, 20자 이내로 입력해주세요. ';
+    } else {
+        idWarnDiv.textContent = '';
+    }
+}
+
     // TODO 중복확인 (Ajax 통신)
 
 // 비밀번호
-    // TODO 형식 검사 (글자수, 대/소문자, 숫자, 특수문자 포함)
+    // 형식 검사 (글자수, 대/소문자, 숫자, 특수문자 포함)
 var passwordWarnDiv = document.getElementById('password_warn');
 function passwordValidate(inputText) {
     var pwd = inputText.value;
     var num = pwd.search(/[0-9]/g); // 숫자 정규식
-    var eng = pwd.search(/[a-z]/ig); // 영문 정규식
+    var eng_lower = pwd.search(/[a-z]/g); // 영문 소문자 정규식
+    var eng_upper = pwd.search(/[A-Z]/g); // 영문 대문자 정규식
     var spe = pwd.search(/[`~!@#$%^&*|\\\'\";:\/?]/gi); // 특수문자 정규식
 
     if(pwd.search(/\s/) !== -1) {
         passwordWarnDiv.textContent = ' * 비밀번호는 공백을 포함할 수 없습니다.';
     } else if(pwd.length<=8 || pwd.length>=20) {
         passwordWarnDiv.textContent = ' * 비밀번호는 8~20자로 입력해주세요.';
-    } else if(num < 0 || eng < 0 || spe < 0) {
-        passwordWarnDiv.textContent = ' * 영문, 숫자, 특수문자를 혼합해 입력해주세요.';
+    } else if(num < 0 || eng_lower < 0 || spe < 0 || eng_upper<0) {
+        passwordWarnDiv.textContent = ' * 영문 대/소문자, 숫자, 특수문자를 혼합해 입력해주세요.';
     } else {
         passwordWarnDiv.textContent = '';
     }
