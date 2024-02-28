@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>별책부록, 회원가입</title>
+<!--    <link rel="stylesheet" type="text/css" href="/static/css/all.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/css/all.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="/static/css/sign.css"/>-->
+    <link rel="stylesheet" type="text/css" href="/css/sign.css"/>
+
+</head>
+<body>
+    <div class="all_container">
+        <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
+        <h3 class="h2_title"> 회원가입 </h3>
+        <form th:action="@{/user/signup}" th:object="${usersAddForm}" method="post">
+        <div class="form_container">
+                <div class="one_line">
+                    <input name="user_id" type="text" placeholder="아이디" oninput="idValidate(this)">
+                    <div id="id_warn" class="validate_warning"></div>
+                </div>
+                <div class="one_line">
+                    <input name="user_password" type="password" placeholder="비밀번호" oninput="passwordValidate(this)">
+                    <div id="password_warn" class="validate_warning"></div>
+                </div>
+                <div class="one_line">
+                    <input name="user_nickname" placeholder="닉네임" oninput="nicknameValidate(this)">
+                    <div id="nickname_warn" class="validate_warning"></div>
+                </div>
+                <div class="one_line" style="display: flex">
+                    <input id="email_local" name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly" onchange="getUserEmail()">
+                    <select id="domain_select" oninput="changeDomainSelectOption(this)">
+                        <option selected disabled>선택하세요</option>
+                        <option value="@naver.com">@naver.com</option>
+                        <option value="@hanmail.net">@hanmail.net</option>
+                        <option value="@daum.net">@daum.net</option>
+                        <option value="@kakao.com">@kakao.com</option>
+                        <option value="@google.com">@google.com</option>
+                        <option value="enter">직접입력</option>
+                    </select>
+                </div>
+                <input type="hidden" id="user_email" name="user_email" value="">
+                <div class="one_line sex_div">
+                    <div style="width: 50%;"> 성별 </div>
+                    <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="0"> 남</div>
+                    <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="1"> 여</div>
+                </div>
+                <div class="one_line addr_search_div">
+                    <input id="user_addr0" name="postcode" type="text" placeholder="우편번호" readonly="readonly">
+                    <button id="search_addr_btn" onclick="execDaumPostcode()" type="button"> 우편번호 찾기 </button>
+                </div>
+                <div class="one_line">
+                    <input id="user_addr1" name="user_addr1" type="text" placeholder="주소" readonly="readonly">
+                </div>
+                <div class="one_line addr_search_div">
+                    <input id="user_addr2" name="user_addr2" type="text" placeholder="상세주소">
+                    <input id="user_addr3" name="user_addr3" type="text" placeholder="참고항목" style="margin-left: 10px; margin-right: 0" readonly="readonly">
+                </div>
+        </div>
+        <div class="signup_btn_div"><button id="signup_btn" type="submit"> 가입하기 </button></div>
+        </form>
+        <div class="login_div">
+            이미 가입하셨다면,&nbsp; <a href="/user/signin">로그인하기</a>
+        </div>
+        <div class="or_hr_div">
+            <div class="hr"></div>
+            <div class="or">또는</div>
+            <div class="hr"></div>
+        </div>
+        <div class="oauth2_login_div">
+            <!--            <img src="/static/images/oauth2/icon-google.png">-->
+            <!--            <img src="/static/images/oauth2/icon-kakao.png">-->
+            <!--            <img src="/static/images/oauth2/icon-twitter.png">-->
+            <!--            <img src="/static/images/oauth2/icon-line.png">-->
+            <!--            <img src="/static/images/oauth2/icon-naver.png">-->
+            <img src="/images/oauth2/icon-google.png">
+            <img src="/images/oauth2/icon-kakao.png">
+            <img src="/images/oauth2/icon-twitter.png">
+            <img src="/images/oauth2/icon-line.png">
+            <img src="/images/oauth2/icon-naver.png">
+        </div>
+    </div>
+</body>
+
+<!--<script type="text/javascript" src="/static/js/signup.js"></script>-->
+<script type="text/javascript" src="/js/signup.js"></script>
+<!-- 다음 우편번호 서비스 API -->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
+</html>

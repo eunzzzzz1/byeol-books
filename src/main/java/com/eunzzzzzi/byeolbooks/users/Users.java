@@ -19,8 +19,10 @@ public class Users {
     private String user_nickname;
     private String user_email;
     private int user_sex;
+    private String postcode;
     private String user_addr1;
     private String user_addr2;
+    private String user_addr3;
     private String provider;
     private String provider_token;
     @Convert(converter = LocalDateTimeConverter.class)
