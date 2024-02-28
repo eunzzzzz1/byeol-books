@@ -1,6 +1,5 @@
 package com.eunzzzzzi.byeolbooks.users;
 
-import jakarta.persistence.Convert;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -28,7 +27,7 @@ public class UsersAddForm {
     private String user_email;
 
     @NotEmpty(message = "성별을 선택해주세요.")
-    private int user_sex;
+    private String user_sex;
 
     @NotEmpty(message = "주소를 입력해주세요.")
     private String postcode;
