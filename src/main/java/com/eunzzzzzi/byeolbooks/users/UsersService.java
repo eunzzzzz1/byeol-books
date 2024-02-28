@@ -17,9 +17,10 @@ public class UsersService {
                         String user_nickname,
                         String user_email,
                         int user_sex,
-                        String user_birth,
+                        String postcode,
                         String user_addr1,
                         String user_addr2,
+                        String user_addr3,
                         String provider,
                         String provider_token) {
         Users users = new Users();
@@ -28,8 +29,10 @@ public class UsersService {
         users.setUser_nickname(user_nickname);
         users.setUser_email(user_email);
         users.setUser_sex(user_sex);
+        users.setPostcode(postcode);
         users.setUser_addr1(user_addr1);
         users.setUser_addr2(user_addr2);
+        users.setUser_addr3(user_addr3);
         users.setProvider(provider);
         users.setProvider_token(provider_token);
         users.setCreate_date(LocalDateTime.now());
