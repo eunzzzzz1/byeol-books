@@ -42,19 +42,38 @@ function passwordValidate(inputText) {
 }
 
 // 이메일
-    // 이메일 도메인 select 선택 시, input에 들어가게 하기
+    // V 이메일 도메인 select 선택 시, input에 들어가게 하기
+    // V 유저 이메일을 hidden input에 넣기
+var emailLocalInputBox = document.getElementById('email_local');
 var emailDomainInputBox = document.getElementById('email_domain');
 var domainSelectOption = document.getElementById("domain_select");
+var emailHiddenBox = document.getElementById('user_email');
 
 function changeDomainSelectOption() {
     if(domainSelectOption.options[domainSelectOption.selectedIndex].value === "enter") {
         emailDomainInputBox.readOnly = false;
-        emailDomainInputBox.value = null;
+        emailDomainInputBox.value = '@';
     } else {
         emailDomainInputBox.value = domainSelectOption.options[domainSelectOption.selectedIndex].value;
     }
+
+    // 이메일을 select에서 선택했을 때 hidden input으로 넣는 스크립트
+    var userEmail = emailLocalInputBox.value + emailDomainInputBox.value;
+    alert(userEmail);
+    emailHiddenBox.value = userEmail;
 }
+
+    // 이메일을 직접 입력했을 때 hidden input으로 넣는 스크립트
+function getUserEmail() {
+    var userEmail = emailLocalInputBox.value + emailDomainInputBox.value;
+    alert(userEmail);
+    emailHiddenBox.value = userEmail;
+}
+
+
     // TODO 이메일 형식 검사
+
+
 
 
 // 닉네임

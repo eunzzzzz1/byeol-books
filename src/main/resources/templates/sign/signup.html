@@ -28,7 +28,7 @@
                     <div id="nickname_warn" class="validate_warning"></div>
                 </div>
                 <div class="one_line" style="display: flex">
-                    <input name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly">
+                    <input id="email_local" name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly" onchange="getUserEmail()">
                     <select id="domain_select" oninput="changeDomainSelectOption(this)">
                         <option selected disabled>선택하세요</option>
                         <option value="@naver.com">@naver.com</option>
@@ -39,6 +39,7 @@
                         <option value="enter">직접입력</option>
                     </select>
                 </div>
+                <input type="hidden" name="user_email" value="">
                 <div class="one_line sex_div">
                     <div style="width: 50%;"> 성별 </div>
                     <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="0"> 남</div>
