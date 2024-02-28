@@ -12,7 +12,7 @@ public class UsersService {
     private final UsersRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public Users create(String user_id,
+    public Users addUser(String user_id,
                         String user_password,
                         String user_nickname,
                         String user_email,
@@ -42,18 +42,3 @@ public class UsersService {
     }
 }
 
-/*
-    private String user_id;
-    private String user_password;
-    private String user_name;
-    private String user_nickname;
-    private String create_date;
-    private String user_email;
-    private int user_sex;
-    private String user_birth;
-    private String user_addr1;
-    private String user_addr2;
-    private String provider;
-    private String provider_token;
-
- */
