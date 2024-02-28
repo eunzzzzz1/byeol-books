@@ -65,9 +65,8 @@ function changeDomainSelectOption() {
 
     // 이메일을 직접 입력했을 때 hidden input으로 넣는 스크립트
 function getUserEmail() {
-    var userEmail = emailLocalInputBox.value + emailDomainInputBox.value;
     // alert(userEmail);
-    emailHiddenBox.value = userEmail;
+    emailHiddenBox.value = emailLocalInputBox.value + emailDomainInputBox.value;
 }
     // TODO 이메일 형식 검사
 

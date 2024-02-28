@@ -13,8 +13,8 @@
     <div class="all_container">
         <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
         <h3 class="h2_title"> 회원가입 </h3>
+        <form th:action="@{/user/signup}" th:object="${usersAddForm}" method="post">
         <div class="form_container">
-            <form>
                 <div class="one_line">
                     <input name="user_id" type="text" placeholder="아이디" oninput="idValidate(this)">
                     <div id="id_warn" class="validate_warning"></div>
@@ -39,7 +39,7 @@
                         <option value="enter">직접입력</option>
                     </select>
                 </div>
-                <input type="hidden" name="user_email" value="">
+                <input type="hidden" id="user_email" name="user_email" value="">
                 <div class="one_line sex_div">
                     <div style="width: 50%;"> 성별 </div>
                     <div class="radio_div"><input class="radio" name="user_sex" type="radio" value="0"> 남</div>
@@ -56,10 +56,9 @@
                     <input id="user_addr2" name="user_addr2" type="text" placeholder="상세주소">
                     <input id="user_addr3" name="user_addr3" type="text" placeholder="참고항목" style="margin-left: 10px; margin-right: 0" readonly="readonly">
                 </div>
-
-            </form>
         </div>
-        <div class="signup_btn_div"><button id="signup_btn"> 가입하기 </button></div>
+        <div class="signup_btn_div"><button id="signup_btn" type="submit"> 가입하기 </button></div>
+        </form>
         <div class="login_div">
             이미 가입하셨다면,&nbsp; <a href="/user/signin">로그인하기</a>
         </div>
