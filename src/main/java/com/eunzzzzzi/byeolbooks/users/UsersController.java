@@ -12,9 +12,16 @@ public class UsersController {
 
     private final UsersService usersService;
 
+    // 회원가입 폼
     @GetMapping("/signup")
     public String signUp() {
         return "sign/signup";
+    }
+
+    // 로그인 폼
+    @RequestMapping("/signin")
+    public String signIn() {
+        return "sign/signin";
     }
 
 }
