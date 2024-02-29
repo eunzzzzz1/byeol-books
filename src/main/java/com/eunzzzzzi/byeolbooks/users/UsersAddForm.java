@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class UsersAddForm {
 
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 20, message = "ID는 3자 이상 20자 이하로 작성해주세요.")
     @NotEmpty(message = "ID를 입력해주세요.")
     private String user_id;
 

@@ -16,9 +16,27 @@ function idValidate(inputText) {
     } else {
         idWarnDiv.textContent = '';
     }
+
 }
 
-    // TODO 중복확인 (Ajax 통신)
+// TODO 중복확인 (Ajax 통신)
+function idDuplicationCheck(inputText) {
+    var id = inputText.value;
+
+    var request = $.ajax({
+        url: "/user/idchecking",
+        method: "POST",
+        data: {
+            userId: id
+        }
+    })
+    request.done(function (data) {
+        alert("아작스 통신 완료");
+        if(data===1) idWarnDiv.textContent = ' * 이미 존재하는 아이디입니다. ';
+    });
+
+}
+
 
 // 비밀번호
     // 형식 검사 (글자수, 대/소문자, 숫자, 특수문자 포함)
