@@ -3,5 +3,5 @@ package com.eunzzzzzi.byeolbooks.users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsersRepository extends JpaRepository<Users, String> {
-    public Users findByUser_id(String userId);
+    public Users findByUserId(String userId);
 }
