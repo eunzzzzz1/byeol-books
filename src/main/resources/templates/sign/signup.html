@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<!-- CSRF 토큰값 세팅 태그 -->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>별책부록, 회원가입</title>
 <!--    <link rel="stylesheet" type="text/css" href="/static/css/all.css"/>-->
     <link rel="stylesheet" type="text/css" href="/css/all.css"/>
@@ -15,6 +18,8 @@
         <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
         <h3 class="h2_title"> 회원가입 </h3>
         <form th:action="@{/user/signup}" th:object="${usersAddForm}" method="post">
+            <!-- CSRF 토큰값을 Form에 포함하기 -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <div class="form_container">
                 <div class="one_line">
                     <input id="user_id" name="user_id" type="text" placeholder="아이디" oninput="idValidate(this)" onchange="idDuplicationCheck(this)">

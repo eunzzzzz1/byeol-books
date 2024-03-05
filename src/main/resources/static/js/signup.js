@@ -1,5 +1,10 @@
+// AJAX Post 방식 통신에 필요한 CSRF 토큰 정보
+const token = $("meta[name='_csrf']").attr("content")
+const header = $("meta[name='_csrf_header']").attr("content");
+const name = $("#userName").val();
+
 // 아이디
-    // TODO 형식 확인
+    // 형식 확인
     /*
         - 소문자와 숫자만 가능
         - 20자 이내
@@ -27,11 +32,16 @@ function idDuplicationCheck(inputText) {
         url: "/user/idchecking",
         method: "POST",
         data: {
-            userId: id
-        }
+            "userId": id
+        },
+
+        // Request Header에 CSRF 토큰값을 설정한다.
+        beforeSend : function(xhr) {
+            xhr.setRequestHeader(header, token);
+        },
     })
+
     request.done(function (data) {
-        alert("아작스 통신 완료");
         if(data===1) idWarnDiv.textContent = ' * 이미 존재하는 아이디입니다. ';
     });
 
