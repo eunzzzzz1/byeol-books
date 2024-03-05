@@ -1,5 +1,10 @@
+// AJAX Post 방식 통신에 필요한 CSRF 토큰 정보
+const token = $("meta[name='_csrf']").attr("content")
+const header = $("meta[name='_csrf_header']").attr("content");
+const name = $("#userName").val();
+
 // 아이디
-    // TODO 형식 확인
+    // 형식 확인
     /*
         - 소문자와 숫자만 가능
         - 20자 이내
@@ -27,14 +32,18 @@ function idDuplicationCheck(inputText) {
         url: "/user/idchecking",
         method: "POST",
         data: {
-            userId: id
-        }
+            "userId": id
+        },
+
+        // Request Header에 CSRF 토큰값을 설정한다.
+        beforeSend : function(xhr) {
+            xhr.setRequestHeader(header, token);
+        },
     })
+
     request.done(function (data) {
-        alert("아작스 통신 완료");
         if(data===1) idWarnDiv.textContent = ' * 이미 존재하는 아이디입니다. ';
     });
-
 }
 
 
@@ -67,6 +76,11 @@ var emailDomainInputBox = document.getElementById('email_domain');
 var domainSelectOption = document.getElementById("domain_select");
 var emailHiddenBox = document.getElementById('user_email');
 
+// 로컬부분 입력 시 hiddenbox에 이메일 넣기
+function inputEmailHiddenBox() {
+    emailHiddenBox.value = emailLocalInputBox.value + emailDomainInputBox.value;
+}
+
 function changeDomainSelectOption() {
     if(domainSelectOption.options[domainSelectOption.selectedIndex].value === "enter") {
         emailDomainInputBox.readOnly = false;
@@ -76,9 +90,8 @@ function changeDomainSelectOption() {
     }
 
     // 이메일을 select에서 선택했을 때 hidden input으로 넣는 스크립트
-    var userEmail = emailLocalInputBox.value + emailDomainInputBox.value;
     // alert(userEmail);
-    emailHiddenBox.value = userEmail;
+    emailHiddenBox.value = emailLocalInputBox.value + emailDomainInputBox.value;
 }
 
     // 이메일을 직접 입력했을 때 hidden input으로 넣는 스크립트
@@ -86,7 +99,30 @@ function getUserEmail() {
     // alert(userEmail);
     emailHiddenBox.value = emailLocalInputBox.value + emailDomainInputBox.value;
 }
-    // TODO 이메일 형식 검사
+    // TODO 이메일 중복 검사
+
+var emailWarnDiv = document.getElementById('email_warn');
+function emailDuplicationCheck() {
+    var email = emailHiddenBox.value;
+
+    var request = $.ajax({
+        url: "/user/emailchecking",
+        method: "POST",
+        data: {
+            "userEmail": email
+        },
+
+        // Request Header에 CSRF 토큰값을 설정한다.
+        beforeSend : function(xhr) {
+            xhr.setRequestHeader(header, token);
+        },
+    })
+
+    request.done(function (data) {
+        if(data===1) emailWarnDiv.textContent = ' * 이미 존재하는 이메일입니다. ';
+        else emailWarnDiv.textContent = '';
+    });
+}
 
 // 닉네임
     // 닉네임 두 자 이상으로 형식검사

@@ -6,10 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RequiredArgsConstructor
@@ -28,10 +25,20 @@ public class UsersController {
 
     // 아이디 중복확인
     @RequestMapping("/idchecking")
+    @ResponseBody
     public int idChecking(@RequestParam("userId") String userId) {
         // 있으면 1 없으면 0
-        System.out.println("아작스 통신 중...");
-        return usersService.idDuplicationCheck(userId)?1:0;
+        log.info("아작스 통신 - 아이디 체크 중..." + usersService.idDuplicationCheck(userId));
+        return usersService.idDuplicationCheck(userId)!=null?1:0;
+    }
+
+    // 이메일 중복확인
+    @RequestMapping("/emailchecking")
+    @ResponseBody
+    public int emailChecking(@RequestParam("userEmail") String userEmail) {
+        // 있으면 1 없으면 0
+        log.info("아작스 통신 - " + userEmail + " 이메일 체크 중..." + usersService.emailDuplicationCheck(userEmail));
+        return usersService.emailDuplicationCheck(userEmail)?1:0;
     }
 
     // 회원가입 진행
@@ -66,7 +73,7 @@ public class UsersController {
     }
 
     // 로그인 폼
-    @RequestMapping("/signin")
+    @GetMapping("/signin")
     public String signIn() {
         return "sign/signin";
     }

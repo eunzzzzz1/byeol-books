@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<!-- CSRF 토큰값 세팅 태그 -->
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>별책부록, 회원가입</title>
 <!--    <link rel="stylesheet" type="text/css" href="/static/css/all.css"/>-->
     <link rel="stylesheet" type="text/css" href="/css/all.css"/>
@@ -15,6 +18,8 @@
         <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
         <h3 class="h2_title"> 회원가입 </h3>
         <form th:action="@{/user/signup}" th:object="${usersAddForm}" method="post">
+            <!-- CSRF 토큰값을 Form에 포함하기 -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         <div class="form_container">
                 <div class="one_line">
                     <input id="user_id" name="user_id" type="text" placeholder="아이디" oninput="idValidate(this)" onchange="idDuplicationCheck(this)">
@@ -29,8 +34,9 @@
                     <div id="nickname_warn" class="validate_warning"></div>
                 </div>
                 <div class="one_line" style="display: flex">
-                    <input id="email_local" name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly" onchange="getUserEmail()">
-                    <select id="domain_select" oninput="changeDomainSelectOption(this)">
+                    <input id="email_local" name="email_local" type="text" placeholder="이메일" onchange="inputEmailHiddenBox(); emailDuplicationCheck();">
+                    <input name="email_domain" id="email_domain" value="" readonly="readonly" onchange="getUserEmail();">
+                    <select id="domain_select" oninput="changeDomainSelectOption(this); emailDuplicationCheck();">
                         <option selected disabled>선택하세요</option>
                         <option value="@naver.com">@naver.com</option>
                         <option value="@hanmail.net">@hanmail.net</option>
@@ -40,6 +46,7 @@
                         <option value="enter">직접입력</option>
                     </select>
                 </div>
+                <div id="email_warn" class="validate_warning"></div>
                 <input type="hidden" id="user_email" name="user_email" value="">
                 <div class="one_line sex_div">
                     <div style="width: 50%;"> 성별 </div>

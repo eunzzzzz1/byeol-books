@@ -43,9 +43,14 @@ public class UsersService {
     }
 
     // DB에서 매개변수와 동일한 아이디 찾기
-    public boolean idDuplicationCheck(String userId) {
+    public Users idDuplicationCheck(String userId) {
+        return userRepository.findByUserId(userId);
+    }
+
+    // DB에서 매개변수와 동일한 이메일 찾기
+    public boolean emailDuplicationCheck(String userEmail) {
         // 있으면 true 없으면 false
-        return userRepository.findByUserId(userId) != null && !userRepository.findByUserId(userId).equals("");
+        return userRepository.findByUserEmail(userEmail) != null;
     }
 }
 
