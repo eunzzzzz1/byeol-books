@@ -34,8 +34,9 @@
                     <div id="nickname_warn" class="validate_warning"></div>
                 </div>
                 <div class="one_line" style="display: flex">
-                    <input id="email_local" name="email_local" type="text" placeholder="이메일"> <input name="email_domain" id="email_domain" value="" readonly="readonly" onchange="getUserEmail()">
-                    <select id="domain_select" oninput="changeDomainSelectOption(this)">
+                    <input id="email_local" name="email_local" type="text" placeholder="이메일" onchange="inputEmailHiddenBox(); emailDuplicationCheck();">
+                    <input name="email_domain" id="email_domain" value="" readonly="readonly" onchange="getUserEmail();">
+                    <select id="domain_select" oninput="changeDomainSelectOption(this); emailDuplicationCheck();">
                         <option selected disabled>선택하세요</option>
                         <option value="@naver.com">@naver.com</option>
                         <option value="@hanmail.net">@hanmail.net</option>
@@ -45,6 +46,7 @@
                         <option value="enter">직접입력</option>
                     </select>
                 </div>
+                <div id="email_warn" class="validate_warning"></div>
                 <input type="hidden" id="user_email" name="user_email" value="">
                 <div class="one_line sex_div">
                     <div style="width: 50%;"> 성별 </div>

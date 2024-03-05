@@ -32,6 +32,15 @@ public class UsersController {
         return usersService.idDuplicationCheck(userId)?1:0;
     }
 
+    // 이메일 중복확인
+    @RequestMapping("/emailchecking")
+    @ResponseBody
+    public int emailChecking(@RequestParam("userEmail") String userEmail) {
+        // 있으면 1 없으면 0
+        log.info("아작스 통신 - " + userEmail + " 이메일 체크 중..." + usersService.emailDuplicationCheck(userEmail));
+        return usersService.emailDuplicationCheck(userEmail)?1:0;
+    }
+
     // 회원가입 진행
     @PostMapping("/signup")
     public ModelAndView signUp(@Valid UsersAddForm usersAddForm, BindingResult bindingResult) {

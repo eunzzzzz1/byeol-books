@@ -47,5 +47,11 @@ public class UsersService {
         // 있으면 true 없으면 false
         return userRepository.findByUserId(userId) != null;
     }
+
+    // DB에서 매개변수와 동일한 이메일 찾기
+    public boolean emailDuplicationCheck(String userEmail) {
+        // 있으면 true 없으면 false
+        return userRepository.findByUserEmail(userEmail) != null;
+    }
 }
 
