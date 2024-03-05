@@ -29,7 +29,7 @@ public class UsersController {
     public int idChecking(@RequestParam("userId") String userId) {
         // 있으면 1 없으면 0
         log.info("아작스 통신 - 아이디 체크 중..." + usersService.idDuplicationCheck(userId));
-        return usersService.idDuplicationCheck(userId)?1:0;
+        return usersService.idDuplicationCheck(userId)!=null?1:0;
     }
 
     // 이메일 중복확인
@@ -73,7 +73,7 @@ public class UsersController {
     }
 
     // 로그인 폼
-    @RequestMapping("/signin")
+    @GetMapping("/signin")
     public String signIn() {
         return "sign/signin";
     }

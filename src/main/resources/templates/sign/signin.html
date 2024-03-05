@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign In</title>
+    <title>별책부록, 로그인</title>
 <!--    <link rel="stylesheet" type="text/css" href="/static/css/all.css"/>-->
     <link rel="stylesheet" type="text/css" href="/css/all.css"/>
 <!--    <link rel="stylesheet" type="text/css" href="/static/css/sign.css"/>-->
@@ -10,19 +10,21 @@
 </head>
 <body>
     <div class="all_container">
+
         <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
         <h3 class="h2_title"> 로그인 </h3>
+        <form th:action=${"/user/signin"} method="post">
         <div class="form_container">
-            <form>
                 <div class="one_line">
-                    <input name="user_id" type="text" placeholder="아이디">
+                    <input id="user_id" name="user_id" type="text" placeholder="아이디">
                 </div>
                 <div class="one_line">
-                    <input name="user_password" type="password" placeholder="비밀번호">
+                    <input id="user_password" name="user_password" type="password" placeholder="비밀번호">
                 </div>
-            </form>
+                <div th:if="${param.error}" class="validate_warning">아이디 또는 비밀번호를 확인해주세요.</div>
         </div>
-        <div class="signup_btn_div"><button id="signup_btn"> 로그인 </button></div>
+        <div class="signup_btn_div"><button id="signup_btn" type="submit"> 로그인 </button></div>
+        </form>
         <div class="lost_pwd_div">
             <a href="">비밀번호를 잃어버리셨나요?</a>
         </div>

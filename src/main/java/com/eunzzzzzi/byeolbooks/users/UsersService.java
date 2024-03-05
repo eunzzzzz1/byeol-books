@@ -43,9 +43,8 @@ public class UsersService {
     }
 
     // DB에서 매개변수와 동일한 아이디 찾기
-    public boolean idDuplicationCheck(String userId) {
-        // 있으면 true 없으면 false
-        return userRepository.findByUserId(userId) != null;
+    public Users idDuplicationCheck(String userId) {
+        return userRepository.findByUserId(userId);
     }
 
     // DB에서 매개변수와 동일한 이메일 찾기
