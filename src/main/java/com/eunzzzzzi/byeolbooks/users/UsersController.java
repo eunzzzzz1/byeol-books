@@ -3,6 +3,7 @@ package com.eunzzzzzi.byeolbooks.users;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -76,6 +77,23 @@ public class UsersController {
     @GetMapping("/signin")
     public String signIn() {
         return "sign/signin";
+    }
+
+    // 회원 정보 페이지
+    @GetMapping("/info")
+    public ModelAndView userInfo(Authentication auth) {
+        ModelAndView mav = new ModelAndView();
+
+        if(auth != null) {
+            Users loginUser = usersService.getLoginUserByLoginId(auth.getName());
+            if(loginUser != null) {
+                mav.addObject("users", loginUser);
+            }
+        } else {
+            // 에러 페이지 나중에 추가하기
+        }
+        mav.setViewName("user/info");
+        return mav;
     }
 
 }

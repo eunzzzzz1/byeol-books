@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>임시화면</title>
+    <title>임시 메인화면</title>
 </head>
 <body>
     <a href="/user/signup"> 회원가입</a>
-    <a href="/user/signin"> 로그인</a>
+    <a sec:authorize="isAnonymous()" th:href="@{/user/signin}"> 로그인</a>
+    <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"> 로그아웃</a>
+    <div sec:authorize="isAnonymous()"> 로그인을 해주세요.</div>
+    <div sec:authorize="isAuthenticated()">
+        <h2>[[${loginUserNickname}]]님, 안녕하세요!</h2>
+        <a href="/user/info"> 유저 정보로 이동 </a>
+    </div>
 </body>
 </html>
