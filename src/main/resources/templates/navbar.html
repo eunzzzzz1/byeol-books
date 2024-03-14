@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- th:fragment로 네비바 이름지정해주기 -->
+<nav th:fragment="navbarFragment">
+    <div class="navbar_container">
+        <div class="nav_left">
+            <div>
+                <a href="http://localhost:8082/"><img src="/images/home/byeolbooks_logo.png" width="200"></a>
+            </div>
+            <div class="nav_menu">
+                메뉴들...
+            </div>
+        </div>
+        <div class="nav_right">
+            <div class="nav_profile">
+                <img src="">
+                <a sec:authorize="isAuthenticated()"href="/user/info"> 내 프로필 </a>
+            </div>
+            <div>
+                <a sec:authorize="isAnonymous()" th:href="@{/user/signin}"> 로그인</a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"> 로그아웃</a>
+                <a href="/user/signup"> 회원가입</a>
+
+            </div>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</nav>
