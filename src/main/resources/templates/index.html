@@ -2,16 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>임시 메인화면</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/home/navbar.css"/>
+    <title>책에 대한 별별 이야기, 별책부록</title>
 </head>
 <body>
-    <a href="/user/signup"> 회원가입</a>
-    <a sec:authorize="isAnonymous()" th:href="@{/user/signin}"> 로그인</a>
-    <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"> 로그아웃</a>
-    <div sec:authorize="isAnonymous()"> 로그인을 해주세요.</div>
-    <div sec:authorize="isAuthenticated()">
-        <h2>[[${loginUserNickname}]]님, 안녕하세요!</h2>
-        <a href="/user/info"> 유저 정보로 이동 </a>
-    </div>
+    <nav th:replace="navbar :: navbarFragment"></nav>
 </body>
 </html>
