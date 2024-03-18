@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="all_container">
-        <div class="byeolbooks_logo"> <h1>별책부록</h1> </div>
+        <div class="byeolbooks_logo"> <a href="http://localhost:8082/"><img src="/images/home/byeolbooks_logo.png" width="250"></a> </div>
         <h3 class="h2_title"> 회원가입 </h3>
         <form th:action="@{/user/signup}" th:object="${usersAddForm}" method="post">
             <!-- CSRF 토큰값을 Form에 포함하기 -->

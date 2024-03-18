@@ -9,20 +9,15 @@
                 <a href="http://localhost:8082/"><img src="/images/home/byeolbooks_logo.png" width="200"></a>
             </div>
             <div class="nav_menu">
-                메뉴들...
+                <div> <a href="">별책서점</a></div>
+                <div> <a href="">내 서재</a> </div>
             </div>
         </div>
         <div class="nav_right">
-            <div class="nav_profile">
-                <img src="">
-                <a sec:authorize="isAuthenticated()"href="/user/info"> 내 프로필 </a>
-            </div>
-            <div>
+                <a sec:authorize="isAnonymous()" th:href="@{/user/signup}"> 회원가입</a>
                 <a sec:authorize="isAnonymous()" th:href="@{/user/signin}"> 로그인</a>
+                <a sec:authorize="isAuthenticated()"href="/user/info"> 내 정보 </a>
                 <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"> 로그아웃</a>
-                <a href="/user/signup"> 회원가입</a>
-
-            </div>
         </div>
     </div>
     <div>
