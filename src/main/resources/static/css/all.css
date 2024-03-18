@@ -1,3 +1,10 @@
+/* 폰트 */
+/* 이롭게 바탕체 */
+@font-face {
+    font-family: 'IropkeBatangM';
+    src:url('../fonts/IropkeBatangM.woff') format('woff')
+}
+
 a {
     color: #9f04ff;
     text-decoration: none;

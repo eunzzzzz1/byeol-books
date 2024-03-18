@@ -1,8 +1,12 @@
+
+
 nav {
     position: fixed;
+    font-family: IropkeBatangM;
     top: 0;
     left: 0;
     width: 100%;
+    box-shadow: 0 1px 10px 1px rgba(117, 117, 117, 0.3);
 }
 
 .navbar_container {
@@ -34,16 +38,36 @@ nav {
     }
 }
 
-
-
+/* 네비게이션 바 왼쪽 */
 .nav_left  {
     display: flex;
+    width: 50%;
     align-items: center;
 }
 
+.nav_menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.nav_menu div a{
+    color: black;
+    font-weight: normal;
+}
+
+.nav_menu div a:hover{
+    color: #6b6b6b;
+    font-weight: normal;
+}
+
+/* 네비게이션 바 오른쪽 */
 
 .nav_right {
     display: flex;
+    width: 15%;
     align-items: center;
     justify-content: space-between;
 }
+
