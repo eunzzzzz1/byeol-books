@@ -9,8 +9,8 @@
                 <a href="http://localhost:8082/"><img src="/images/home/byeolbooks_logo.png" width="200"></a>
             </div>
             <div class="nav_menu">
-                <div> <a href="">별책서점</a></div>
-                <div> <a th:href="@{http://localhost:8082/mybooks(id=${loginUserId})}">내 서재</a> </div>
+                <div id="bookstore"> <a href="http://localhost:8082/">별책서점</a></div>
+                <div id="mybooks"> <a th:href="@{http://localhost:8082/mybooks(id=${loginUserId})}">내 서재</a> </div>
             </div>
         </div>
         <div class="nav_right">

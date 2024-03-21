@@ -27,6 +27,7 @@ public class MyBooksController {
             mav.setViewName("redirect:/user/signin");
             return mav;
         }
+        mav.addObject("loginUserId", id);
         mav.addObject("loginUser", usersService.getLoginUserByLoginId(id));
         mav.setViewName("mybooks/main");
         return mav;
