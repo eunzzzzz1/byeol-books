@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/css/all.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/home/navbar.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/mybooks/mybooksMain.css"/>
+    <title>[[${loginUser.userNickname}]]([[${loginUser.userId}]])님의 서재, 별책부록</title>
+</head>
+<body>
+    <nav th:replace="navbar :: navbarFragment"></nav>
+    <div class="all_container">
+        <div class="main_container">
+            <div class="profile_top">
+                <div class="cover">
+                    <img src="/images/mybooks/background.jpg">
+                </div>
+                <div class="profile_img">
+                    <img src="/images/mybooks/profile.jpg">
+                </div>
+                <div class="profile_text">
+                    <div class="nickname"><p>[[${loginUser.userNickname}]]</p> <p class="id">([[${loginUser.userId}]])</p></div>
+                    <div class="information">안녕하세요, 은지입니다!<br> 저는 스릴러물과 추리물을 좋아하고, 비문학도 즐겨읽고 있습니다.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
