@@ -1,19 +1,25 @@
+body {
+    margin: 0;
+}
+
 #mybooks a{
     font-weight: bold;
 }
 
 .all_container {
-    margin-top: 150px;
+    width: 100vw;
+    margin: 0;
+    background-color: #744494;
     justify-content: center;
     display: flex;
 }
 
 .main_container {
-    width: 1000px;
-    /*background-color: red;*/
+    width: 1100px;
+    background-color: #ffffff;
 }
 
-/* 프로필 상단 */
+/************ 프로필 상단 *************/
 .profile_top {
     width: 100%;
     position: relative;
@@ -23,7 +29,7 @@
 /* 프로필 커버 */
 .cover {
     width: 100%;
-    height: 300px;
+    height: 400px;
     overflow:hidden;
 }
 
@@ -33,6 +39,7 @@
     object-fit:cover;
 }
 
+/* 프로필 이미지 */
 .profile_img {
     width: 150px;
     height: 150px;
@@ -40,7 +47,7 @@
     border-radius: 100%;
     border: #ffffff 5px solid;
     position: absolute;
-    top: 200px;
+    top: 280px;
     left: 80px;
 }
 
@@ -50,11 +57,9 @@
     object-fit:cover;
 }
 
-/* 닉네임 */
-
+/* 닉네임, 한줄소개 */
 .profile_text {
-    margin-top: 70px;
-    margin-left: 100px;
+    margin: 60px 0 40px 100px;
 }
 
 .profile_text div {
@@ -77,6 +82,109 @@
     margin-left: 5px;
     font-size: 12pt;
     font-weight: normal;
+}
+
+/* 별 */
+.stars {
+    width: 100%;
+    border-top: #e7e7e7 1px solid;
+    border-bottom: #e7e7e7 1px solid;
+    padding: 20px 0 20px 0;
+    margin: 0 0 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 15pt;
+}
+
+.start_num {
+    font-weight: bold;
+    color: #9f04ff;
+    margin: 0 5px 0 5px;
+}
+
+
+
+
+/************ 취향분석 *************/
+.menu_title {
+    font-family: NanumBarunGothicBold;
+    margin-bottom: 20px;
+    font-size: 18pt;
+}
+
+.favor_research {
+    margin: 0 110px 50px 110px;
+    border-bottom: #e7e7e7 1px solid;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-areas:
+    "favor_title favor_title"
+    "book_favor writer_favor"
+    " . . ";
+    gap: 10px;
+}
+
+.favor_title {
+    grid-area: favor_title;
+}
+
+.book_favor {
+    grid-area: book_favor;
+}
+
+.writer_favor {
+    grid-area: writer_favor;
+}
+
+/* 내 서재 */
+.my_books {
+    margin: 0 110px 100px 110px;
+}
+
+.books {
+    display: flex;
+    overflow: hidden;
+    background-color: #f6f6f6;
+}
+
+.one_book {
+    width: 150px;
+    margin: 20px;
+}
+
+.book_img {
+    width: 150px;
+    box-shadow: 1px 1px 5px 1px rgba(117, 117, 117, 0.3);
+}
+
+.book_img img {
+    display: block; /* 이미지 여백 없애기*/
+    width: 100%;
+    height: 100%;
+}
+
+.book_info {
+    margin-top: 15px;
+}
+
+.book_title {
+    font-family: NanumBarunGothicBold;
+    font-size: 11pt;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.book_writer {
+    font-family: NanumBarunGothicLight;
+    font-size: 11pt;
+}
+
+.book_star {
+    margin-top: 5px;
+    font-family: NanumBarunGothicLight;
+    font-size: 11pt;
 }
 
 
