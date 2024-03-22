@@ -2,15 +2,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <!-- th:fragment로 네비바 이름지정해주기 -->
-<nav th:fragment="navbarFragment">
+<nav th:fragment="whiteNavbarFragment">
     <div class="navbar_container">
         <div class="nav_left">
             <div>
                 <a href="http://localhost:8082/"><img class="byeolbooks_logo" src="/images/home/byeolbooks_logo_black.png" width="200"></a>
             </div>
             <div class="nav_menu">
-                <div id="bookstore"> <a href="http://localhost:8082/">별책서점</a></div>
-                <div id="mybooks"> <a th:href="@{http://localhost:8082/mybooks(id=${loginUserId})}">내 서재</a> </div>
+                <div class="bookstore_black"> <a href="http://localhost:8082/">별책서점</a></div>
+                <div class="mybooks_black"> <a th:href="@{http://localhost:8082/mybooks(id=${loginUserId})}">내 서재</a> </div>
             </div>
         </div>
         <div class="nav_right">
@@ -20,7 +20,24 @@
                 <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"> 로그아웃</a>
         </div>
     </div>
-    <div>
+</nav>
 
+<nav class="transparency" th:fragment="transparencyNavbarFragment">
+    <div class="navbar_container">
+        <div class="nav_left">
+            <div>
+                <a href="http://localhost:8082/"><img class="byeolbooks_logo" src="/images/home/byeolbooks_logo_white.png" width="200"></a>
+            </div>
+            <div class="nav_menu_white">
+                <div class="bookstore_white"> <a href="http://localhost:8082/">별책서점</a></div>
+                <div class="mybooks_white"> <a th:href="@{http://localhost:8082/mybooks(id=${loginUserId})}">내 서재</a> </div>
+            </div>
+        </div>
+        <div class="nav_right_white">
+            <a sec:authorize="isAnonymous()" th:href="@{/user/signup}"> 회원가입</a>
+            <a sec:authorize="isAnonymous()" th:href="@{/user/signin}"> 로그인</a>
+            <a sec:authorize="isAuthenticated()"href="/user/info"> 내 정보 </a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}"> 로그아웃</a>
+        </div>
     </div>
 </nav>
